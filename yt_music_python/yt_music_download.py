@@ -1,6 +1,6 @@
-# !pip install pytube
-# !python -m pip install git+https://github.com/nficano/pytube
-# !pip install moviepy
+# pip install pytube
+# pip install moviepy==1.0.2
+# pip install imageio-ffmpeg==0.2.0
 
 # Importações
 import os

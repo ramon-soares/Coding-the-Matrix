@@ -3,7 +3,7 @@ import string
 
 # menu
 def menu(lt_dict):
-    print(" =========== LISTA TELEFONICA ===========")
+    print("\n =========== LISTA TELEFONICA ===========")
     print(" = 1 - Ver lista                        =")
     print(" = 2 - Adicionar contato                =")
     print(" = 3 - Excluir contato                  =")
@@ -65,11 +65,20 @@ def inicializar():
 # visualizar lista telefonica
 def ver_lista(lt_dict):
     print(" =============== CONTATOS ===============")
-    for chave in lt_dict:
-        print(f"\n - {chave} -\n")
-        for contato in lt_dict[chave]:
+    filtro = str(input(" > Digite uma letra de A a Z para filtrar, ou '-' para mostrar todos. > "))
+    filtro = filtro.upper()
+    if filtro == '-':
+        for chave in lt_dict:
+            print(f"\n - {chave} -\n")
+            for contato in lt_dict[chave]:
+                print(f" Nome: {contato['Nome']} | Numero: {contato['Numero']}")
+        print(f"\n {40*'='}\n")
+    elif filtro in lt_dict.keys():
+        print(f"\n - {filtro} -\n")
+        for contato in lt_dict[filtro]:
             print(f" Nome: {contato['Nome']} | Numero: {contato['Numero']}")
-    print(f"\n {40*'='}\n")
+    else:
+        print("\n # Entrada invalida #\n")
     menu(lt_dict)
 
 # adicionar contato na lista telefonica
